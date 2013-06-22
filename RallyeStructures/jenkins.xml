@@ -14,9 +14,8 @@
     </path>
     <target name="init">
         <mkdir dir="bin"/>
-        <mkdir dir="bin/classes"/>
-        <mkdir dir="bin/jar"/>
-        <copy includeemptydirs="false" todir="bin/classes">
+        <mkdir dir="dist"/>
+        <copy includeemptydirs="false" todir="bin">
             <fileset dir="src">
                 <exclude name="**/*.java"/>
             </fileset>
@@ -34,7 +33,7 @@
             <src path="src"/>
             <classpath refid="RallyeStructures.classpath"/>
         </javac>
-        <jar destfile="bin/jar/RallyeStructures.jar" basedir="bin/classes">
+        <jar destfile="dist/RallyeStructures.jar" basedir="bin">
         </jar>
     </target>
 </project>

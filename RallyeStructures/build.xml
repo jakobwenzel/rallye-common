@@ -34,7 +34,7 @@
             <src path="src"/>
             <classpath refid="RallyeStructures.classpath"/>
         </javac>
-        <jar destfile="build/jar/RallyeStructures.jar" basedir="build/classes">
+        <jar destfile="bin/jar/RallyeStructures.jar" basedir="bin/classes">
         </jar>
     </target>
 </project>

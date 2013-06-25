@@ -11,6 +11,10 @@ import de.rallye.model.mapper.EdgeNodeSerializer;
  * @version 1.0
  */
 public class Edge {
+	public static final String NODE_A = "nodeA";
+	public static final String NODE_B = "nodeB";
+	public static final String TYPE = "type";
+
 	@JsonSerialize(using=EdgeNodeSerializer.class)
 	final public Node nodeA;
 	@JsonSerialize(using=EdgeNodeSerializer.class)

@@ -1,7 +1,5 @@
 package de.rallye.model.structures;
 
-import java.awt.Dimension;
-
 public enum PictureSize {
 	Thumbnail, Standard, Original;
 	

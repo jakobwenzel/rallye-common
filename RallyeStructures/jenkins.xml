@@ -11,6 +11,7 @@
     <path id="RallyeStructures.classpath">
         <pathelement location="bin/classes"/>
         <pathelement location="libs/jackson-core-asl-1.9.2.jar"/>
+	<pathelement location="libs/jackson-mapper-asl-1.9.2.jar"/>
     </path>
     <target name="init">
         <mkdir dir="bin"/>

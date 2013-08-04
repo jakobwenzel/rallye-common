@@ -6,11 +6,12 @@
               as the first entry and export the buildfile again. --><project basedir="." default="build" name="RallyeStructures">
     <property environment="env"/>
     <property name="debuglevel" value="source,lines,vars"/>
-    <property name="target" value="1.7"/>
-    <property name="source" value="1.7"/>
+    <property name="target" value="1.6"/>
+    <property name="source" value="1.6"/>
     <path id="RallyeStructures.classpath">
         <pathelement location="bin/classes"/>
         <pathelement location="libs/jackson-core-asl-1.9.2.jar"/>
+	<pathelement location="libs/jackson-mapper-asl-1.9.2.jar"/>
     </path>
     <target name="init">
         <mkdir dir="bin"/>

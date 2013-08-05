@@ -13,7 +13,7 @@ import org.codehaus.jackson.annotate.JsonIgnore;
 public class Node {
 	public static final String NODE_ID = "nodeID";
 	public static final String NAME = "name";
-	public static final String POSITION = "position";
+	public static final String POSITION = "location";
 	public static final String DESCRIPTION = "description";
 	
 	final public int nodeID;

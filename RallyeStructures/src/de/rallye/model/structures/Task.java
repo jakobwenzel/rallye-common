@@ -34,4 +34,8 @@ public class Task {
 		this.multipleSubmits = multipleSubmits;
 		this.submitType = submitType;
 	}
+
+	public boolean hasLocation() {
+		return location != null;
+	}
 }

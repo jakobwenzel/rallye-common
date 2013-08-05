@@ -13,12 +13,12 @@ import org.codehaus.jackson.annotate.JsonIgnore;
 public class Node {
 	public static final String NODE_ID = "nodeID";
 	public static final String NAME = "name";
-	public static final String POSITION = "location";
+	public static final String LOCATION = "location";
 	public static final String DESCRIPTION = "description";
 	
 	final public int nodeID;
 	final public String name;
-	final public LatLng position;
+	final public LatLng location;
 	final public String description;
 	
 	@JsonIgnore final private ArrayList<Edge> edges = new ArrayList<Edge>();
@@ -27,7 +27,7 @@ public class Node {
 		this.nodeID = ID;
 		this.name = name;
 		this.description = description;
-		this.position = new LatLng(lat, lon);
+		this.location = new LatLng(lat, lon);
 	}
 	
 	public void addEdge(Edge edge) {
@@ -42,7 +42,7 @@ public class Node {
 	
 	@Override
 	public String toString() {
-		return name +" ( "+position.latitude+" , "+position.longitude+" )";
+		return name +" ( "+ location.latitude+" , "+ location.longitude+" )";
 	}
 	
 

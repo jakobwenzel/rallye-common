@@ -1,6 +1,8 @@
 package de.rallye.model.structures;
 
-public class Task {
+import java.io.Serializable;
+
+public class Task implements Serializable{
 
 	public static final String TASK_ID = "taskID";
 	public static final String NAME = "name";

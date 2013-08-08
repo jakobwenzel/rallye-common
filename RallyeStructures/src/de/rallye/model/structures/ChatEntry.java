@@ -38,27 +38,15 @@ public class ChatEntry {
 	}
 
 	@Override
-	public boolean equals(Object obj) {//TODO; use chatID only, since it is unique
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		ChatEntry other = (ChatEntry) obj;
-		if (message == null) {
-			if (other.message != null)
-				return false;
-		} else if (!message.equals(other.message))
-			return false;
-		if (pictureID != other.pictureID)
-			return false;
-		if (userID != other.userID)
-			return false;
-		if (groupID != other.groupID)
-			return false;
-		if (timestamp != other.timestamp)
-			return false;
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (o == null || getClass() != o.getClass()) return false;
+
+		ChatEntry chatEntry = (ChatEntry) o;
+
+		if (chatID != chatEntry.chatID) return false;
+		if (timestamp != chatEntry.timestamp) return false;
+
 		return true;
 	}
 

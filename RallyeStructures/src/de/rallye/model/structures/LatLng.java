@@ -1,6 +1,8 @@
 package de.rallye.model.structures;
 
-public class LatLng {
+import java.io.Serializable;
+
+public class LatLng implements Serializable {
 	
 	public static final String LAT = "latitude";
 	public static final String LNG = "longitude";
@@ -20,10 +22,8 @@ public class LatLng {
 
 		LatLng latLng = (LatLng) o;
 
-		if (Double.compare(latLng.latitude, latitude) != 0) return false;
-		if (Double.compare(latLng.longitude, longitude) != 0) return false;
+		return Double.compare(latLng.latitude, latitude) == 0 && Double.compare(latLng.longitude, longitude) == 0;
 
-		return true;
 	}
 
 	@Override

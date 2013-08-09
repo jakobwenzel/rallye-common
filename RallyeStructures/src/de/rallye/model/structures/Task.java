@@ -22,7 +22,7 @@ public class Task implements Serializable{
 	public final int taskID;
 	public final boolean locationSpecific;
 	public final LatLng location;
-	public final int radius;
+	public final double radius;
 	public final String name;
 	public final String description;
 	public final boolean multipleSubmits;

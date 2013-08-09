@@ -8,6 +8,7 @@ public class Task implements Serializable{
 	public static final String NAME = "name";
 	public static final String DESCRIPTION = "description";
 	public static final String LOCATION = "location";
+	public static final String RADIUS = "radius";
 	public static final String MULTIPLE_SUBMITS = "multipleSubmits";
 	public static final String SUBMIT_TYPE = "submitType";
 	public static final String LOCATION_SPECIFIC = "locationSpecific";
@@ -21,16 +22,18 @@ public class Task implements Serializable{
 	public final int taskID;
 	public final boolean locationSpecific;
 	public final LatLng location;
+	public final int radius;
 	public final String name;
 	public final String description;
 	public final boolean multipleSubmits;
 	public final int submitType;
 	
 	
-	public Task(int taskID, boolean locationSpecific, LatLng location, String name, String description, boolean multipleSubmits, int submitType) {
+	public Task(int taskID, boolean locationSpecific, LatLng location, int radius, String name, String description, boolean multipleSubmits, int submitType) {
 		this.taskID = taskID;
 		this.locationSpecific = locationSpecific;
 		this.location = location;
+		this.radius = radius;
 		this.name = name;
 		this.description = description;
 		this.multipleSubmits = multipleSubmits;

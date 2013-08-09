@@ -52,6 +52,6 @@ public class ChatEntry {
 
 	@Override
 	public String toString() {
-		return message +"|"+timestamp+"|"+userID+"@"+groupID+"|"+pictureID;
+		return message +"|"+ pictureID +" at "+ timestamp +" by "+userID +"@"+ groupID;
 	}
 }

@@ -12,4 +12,9 @@ public class Chatroom {
 		this.chatroomID = chatroomID;
 		this.name = name;
 	}
+
+	@Override
+	public String toString() {
+		return chatroomID +":"+ name;
+	}
 }

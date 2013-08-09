@@ -12,4 +12,9 @@ public class User {
 		this.userID = userID;
 		this.name = name;
 	}
+
+	@Override
+	public String toString() {
+		return userID +":"+ name;
+	}
 }

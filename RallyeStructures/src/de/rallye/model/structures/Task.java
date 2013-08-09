@@ -29,7 +29,7 @@ public class Task implements Serializable{
 	public final int submitType;
 	
 	
-	public Task(int taskID, boolean locationSpecific, LatLng location, int radius, String name, String description, boolean multipleSubmits, int submitType) {
+	public Task(int taskID, boolean locationSpecific, LatLng location, double radius, String name, String description, boolean multipleSubmits, int submitType) {
 		this.taskID = taskID;
 		this.locationSpecific = locationSpecific;
 		this.location = location;
@@ -38,6 +38,10 @@ public class Task implements Serializable{
 		this.description = description;
 		this.multipleSubmits = multipleSubmits;
 		this.submitType = submitType;
+	}
+	
+	public Task(int taskID, String name, String description, boolean multipleSubmits, int submitType) {
+		this(taskID, false, null, 0, name, description, multipleSubmits, submitType);
 	}
 
 	public boolean hasLocation() {

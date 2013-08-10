@@ -1,6 +1,8 @@
 package de.rallye.model.structures;
 
-public class AdditionalPicture extends AdditionalResource {
+import java.io.Serializable;
+
+public class AdditionalPicture extends AdditionalResource implements Serializable {
 	
 	public static final String PICTURE_ID = "pictureID";
 

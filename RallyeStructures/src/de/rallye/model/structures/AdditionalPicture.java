@@ -16,6 +16,7 @@ public class AdditionalPicture extends AdditionalResource {
 	}
 	
 	public static AdditionalPicture fromString(String s) {
-		return null;
+		String pic = s.replaceAll("^picID:(\\d+)$", "$1");
+		return new AdditionalPicture(Integer.parseInt(pic));
 	}
 }

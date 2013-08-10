@@ -18,6 +18,9 @@ public abstract class AdditionalResource {
 	public static List<AdditionalResource> additionalResourcesFromString(String in) {
 		List<AdditionalResource> res = new ArrayList<AdditionalResource>();
 		
+		if (in == null || in.length() == 0)
+			return res;
+		
 		for (String s: in.split(",")) {
 			res.add(AdditionalPicture.fromString(s));
 		}

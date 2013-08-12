@@ -56,4 +56,9 @@ public class Task implements Serializable{
 	public boolean hasLocation() {
 		return location != null;
 	}
+	
+	@Override
+	public String toString() {
+		return taskID +":"+ name +" "+ location +"";
+	}
 }

@@ -11,4 +11,9 @@ public class LoginInfo {
 	public String uniqueID;
 	public String pushID;
 	public String pushMode;
+	
+	@Override
+	public String toString() {
+		return name +":"+ uniqueID +" pushMode:"+ pushID +"|"+ pushMode;
+	}
 }

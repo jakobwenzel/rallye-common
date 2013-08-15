@@ -18,4 +18,9 @@ public class Submission extends SimpleSubmission {
 	public Submission(int submissionID, SimpleSubmission parent) {
 		this(submissionID, parent.submitType, parent.intSubmission, parent.textSubmission, null);
 	}
+
+	@Override
+	public String toString() {
+		return submissionID +": ("+ intSubmission +"|"+ textSubmission +") = "+ score;
+	}
 }

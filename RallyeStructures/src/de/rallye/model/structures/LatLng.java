@@ -2,6 +2,9 @@ package de.rallye.model.structures;
 
 import java.io.Serializable;
 
+import org.codehaus.jackson.annotate.JsonCreator;
+import org.codehaus.jackson.annotate.JsonProperty;
+
 public class LatLng implements Serializable {
 	
 	public static final String LAT = "latitude";
@@ -10,7 +13,8 @@ public class LatLng implements Serializable {
 	public final double latitude;
 	public final double longitude;
 
-	public LatLng(double lat, double lon) {
+	@JsonCreator
+	public LatLng(@JsonProperty("latitude") double lat, @JsonProperty("longitude") double lon) {
 		this.latitude = lat;
 		this.longitude = lon;
 	}

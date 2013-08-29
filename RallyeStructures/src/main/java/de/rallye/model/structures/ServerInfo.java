@@ -5,10 +5,12 @@ public class ServerInfo {
 	public static final String NAME = "name";
 	public static final String DESCRIPTION = "description";
 	public static final String API = "api";
+	public static final String BUILD = "build";
 	
 	final public String name;
 	final public String description;
 	final public Api[] api;
+	final public String build;
 
 	public static class Api {
 		public static final String NAME = "name";
@@ -34,10 +36,11 @@ public class ServerInfo {
 //		}
 	}
 	
-	public ServerInfo(String name, String description, Api[] api) {
+	public ServerInfo(String name, String description, Api[] api, String build) {
 		this.name = name;
 		this.description = description;
 		this.api = api;
+		this.build = build;
 	}
 //ist:0:sc:3:server:4
 	public String getApiAsString() {
@@ -49,7 +52,7 @@ public class ServerInfo {
 		return sb.toString();
 	}
 
-	public static ServerInfo fromSet(String name, String description, String apiString) {
+	public static ServerInfo fromSet(String name, String description, String apiString, String build) {
 		String[] strArr = apiString.split(":");
 		Api[] api = new Api[strArr.length/2];
 
@@ -57,6 +60,6 @@ public class ServerInfo {
 			api[i/2] = new Api(strArr[i], Integer.parseInt(strArr[++i]));
 		}
 
-		return new ServerInfo(name, description, api);
+		return new ServerInfo(name, description, api, build);
 	}
 }

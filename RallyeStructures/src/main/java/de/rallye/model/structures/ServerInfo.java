@@ -1,5 +1,7 @@
 package de.rallye.model.structures;
 
+import org.codehaus.jackson.annotate.JsonIgnore;
+
 public class ServerInfo {
 
 	public static final String NAME = "name";
@@ -48,6 +50,7 @@ public class ServerInfo {
 		this.build = build;
 	}
 //ist:0:sc:3:server:4
+	@JsonIgnore
 	public String getApiAsString() {
 		StringBuilder sb = new StringBuilder();
 		for (Api a: api) {

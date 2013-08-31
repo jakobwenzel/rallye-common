@@ -53,4 +53,15 @@ public class ServerInfo {
 		sb.deleteCharAt(sb.length()-1);
 		return sb.toString();
 	}
+
+    public static ServerInfo fromSet(String name, String description, String apiString, String build) {
+        String[] strArr = apiString.split(":");
+        Api[] api = new Api[strArr.length/2];
+
+        for (int i=0; i<strArr.length; i++) {
+            api[i/2] = new Api(strArr[i], Integer.parseInt(strArr[++i]));
+        }
+
+        return new ServerInfo(name, description, api, build);
+    }
 }

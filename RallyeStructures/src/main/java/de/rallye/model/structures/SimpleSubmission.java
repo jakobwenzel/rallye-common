@@ -1,5 +1,8 @@
 package de.rallye.model.structures;
 
+import org.codehaus.jackson.annotate.JsonCreator;
+import org.codehaus.jackson.annotate.JsonProperty;
+
 public class SimpleSubmission {
 	
 	public static final String SUBMIT_TYPE = "submitType";
@@ -10,8 +13,8 @@ public class SimpleSubmission {
 	final public Integer intSubmission;
 	final public String textSubmission;
 	
-	
-	public SimpleSubmission(int submitType, Integer intSubmission, String textSubmission) {
+	@JsonCreator
+	public SimpleSubmission(@JsonProperty("submitType")int submitType, @JsonProperty("intSubmission")Integer intSubmission, @JsonProperty("textSubmission")String textSubmission) {
 		this.submitType = submitType;
 		this.intSubmission = intSubmission;
 		this.textSubmission = textSubmission;

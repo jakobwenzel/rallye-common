@@ -13,7 +13,7 @@ public class Task implements Serializable{
 	public static final String MULTIPLE_SUBMITS = "multipleSubmits";
 	public static final String SUBMIT_TYPE = "submitType";
 	public static final String LOCATION_SPECIFIC = "locationSpecific";
-	public static final String POINTS = "submitType";
+	public static final String POINTS = "points";
 //	public static final String PICTURE_ID = Picture.PICTURE_ID;
 	public static final String ADDITIONAL_RESOURCES = "additionalResources";
 	

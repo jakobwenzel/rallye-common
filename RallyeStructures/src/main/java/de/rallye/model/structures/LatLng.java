@@ -30,6 +30,12 @@ public class LatLng implements Serializable {
 
 	}
 
+    public static LatLng fromString(String location) {
+        String[] res = location.replace("\\(([0-9.])+,([0-9.])\\)+", "//1;//2").split(";");
+        return new LatLng(Double.valueOf(res[0]), Double.valueOf(res[1]));
+
+    }
+
 	@Override
 	public int hashCode() {
 		int result;

@@ -1,6 +1,9 @@
 package de.rallye.model.structures;
 
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class MapConfig {
 
@@ -27,6 +30,23 @@ public class MapConfig {
 		zoomLevel = 0;
 		bounds = null;
 	}
+
+    public static List<LatLng> getBounds(Set<String> bounds) {
+        List<LatLng> res = new ArrayList<LatLng>();
+        for (String s: bounds) {
+            res.add(LatLng.fromString(s));
+        }
+        return res;
+    }
+
+    public Set<String> getBoundsAsSet() {
+        Set<String> res = new HashSet<String>();
+
+        for(LatLng loc: bounds) {
+            res.add(loc.toString());
+        }
+        return res;
+    }
 	
 	@Override
 	public String toString() {

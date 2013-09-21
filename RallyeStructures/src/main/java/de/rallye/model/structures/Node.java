@@ -23,11 +23,19 @@ public class Node {
 	
 	@JsonIgnore final private ArrayList<Edge> edges = new ArrayList<Edge>();
 
+	@Deprecated
 	public Node(int ID, String name, double lat, double lon, String description) {
 		this.nodeID = ID;
 		this.name = name;
 		this.description = description;
 		this.location = new LatLng(lat, lon);
+	}
+
+	public Node(int ID, String name, LatLng location, String description) {
+		this.nodeID = ID;
+		this.name = name;
+		this.description = description;
+		this.location = location;
 	}
 	
 	public void addEdge(Edge edge) {

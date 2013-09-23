@@ -1,7 +1,33 @@
 package de.rallye.model.structures;
 
+import org.codehaus.jackson.annotate.JsonCreator;
+import org.codehaus.jackson.annotate.JsonProperty;
+
 public class LoginInfo {
+
+	public static final String NAME = "name";
+	public static final String UNIQUE_ID = "uniqueID";
+	public static final String PUSH_ID = "pushID";
+	public static final String PUSH_MODE = "pushMode";
+
+	public final String name;
+	public final String uniqueID;
+	public final String pushID;
+	public final String pushMode;
+
+	@JsonCreator
+	public LoginInfo(@JsonProperty("name") String name, @JsonProperty("uniqueID") String uniqueID, @JsonProperty("pushID") String pushID, @JsonProperty("pushMode") String pushMode) {
+		this.name = name;
+		this.uniqueID = uniqueID;
+		this.pushID = pushID;
+		this.pushMode = pushMode;
+	}
 	
+	@Override
+	public String toString() {
+		return name +":"+ uniqueID +" pushMode:"+ pushID +"|"+ pushMode;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -45,20 +71,5 @@ public class LoginInfo {
 		} else if (!uniqueID.equals(other.uniqueID))
 			return false;
 		return true;
-	}
-
-	public static final String NAME = "name";
-	public static final String UNIQUE_ID = "uniqueID";
-	public static final String PUSH_ID = "pushID";
-	public static final String PUSH_MODE = "pushMode";
-
-	public String name;
-	public String uniqueID;
-	public String pushID;
-	public String pushMode;
-	
-	@Override
-	public String toString() {
-		return name +":"+ uniqueID +" pushMode:"+ pushID +"|"+ pushMode;
 	}
 }

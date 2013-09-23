@@ -13,9 +13,9 @@ import de.rallye.model.structures.Node;
 public class EdgeNodeSerializer extends JsonSerializer<Node> {
 
 	@Override
-	public void serialize(Node value, JsonGenerator jgen, SerializerProvider arg2)
-			throws IOException, JsonProcessingException {
-		jgen.writeNumber(value.nodeID);
+	public void serialize(Node value, JsonGenerator jsonGenerator, SerializerProvider arg2)
+			throws IOException {
+		jsonGenerator.writeNumber(value.nodeID);
 	}
 
 }

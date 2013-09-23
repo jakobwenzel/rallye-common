@@ -1,5 +1,7 @@
 package de.rallye.model.structures;
 
+import org.codehaus.jackson.annotate.JsonCreator;
+
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -16,19 +18,12 @@ public class MapConfig {
 	final public LatLng location;
 	final public float zoomLevel;
 	final public List<LatLng> bounds;
-	
+
 	public MapConfig(String name, LatLng location, float zoomLevel, List<LatLng> bounds) {
 		this.name = name;
 		this.location = location;
 		this.zoomLevel = zoomLevel;
 		this.bounds = bounds;
-	}
-
-	public MapConfig() {
-		name = null;
-		location = null;
-		zoomLevel = 0;
-		bounds = null;
 	}
 
     public static List<LatLng> getBounds(Set<String> bounds) {

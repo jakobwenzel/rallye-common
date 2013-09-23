@@ -5,6 +5,21 @@ import org.codehaus.jackson.annotate.JsonProperty;
 
 public class Group {
 
+	public static final String GROUP_ID = "groupID";
+	public static final String NAME = "name";
+	public static final String DESCRIPTION = "description";
+
+	public final int groupID;
+	public final String name;
+	public final String description;
+
+	@JsonCreator
+	public Group(@JsonProperty("groupID") int groupID, @JsonProperty("name") String name, @JsonProperty("description") String description) {
+		this.groupID = groupID;
+		this.name = name;
+		this.description = description;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -38,23 +53,6 @@ public class Group {
 		} else if (!name.equals(other.name))
 			return false;
 		return true;
-	}
-
-	public static final String GROUP_ID = "groupID";
-	public static final String NAME = "name";
-	public static final String DESCRIPTION = "description";
-
-	public final int groupID;
-	public final String name;
-	public final String description;
-
-	@JsonCreator
-	public Group(@JsonProperty("groupID") int groupID,
-			@JsonProperty("name") String name,
-			@JsonProperty("description") String description) {
-		this.groupID = groupID;
-		this.name = name;
-		this.description = description;
 	}
 
 	@Override

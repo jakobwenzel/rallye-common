@@ -20,7 +20,7 @@ public class Edge {
 	@JsonSerialize(using=EdgeNodeSerializer.class)
 	final public Node nodeB;
 
-	public enum Type { Foot, Bike, Bus, Tram };
+	public enum Type { Foot, Bike, Bus, Tram }
 	
 
 	protected static Type getType(String type) {

@@ -22,7 +22,7 @@ public class LatLng implements Serializable {
 	@Override
 	public boolean equals(Object o) {
 		if (this == o) return true;
-		if (o == null || getClass() != o.getClass()) return false;
+		if (o == null || this.getClass() != o.getClass()) return false;
 
 		LatLng latLng = (LatLng) o;
 
@@ -31,7 +31,7 @@ public class LatLng implements Serializable {
 	}
 
     public static LatLng fromString(String location) {
-        String[] res = location.replace("\\(([0-9.])+,([0-9.])\\)+", "//1;//2").split(";");
+        String[] res = location.replaceAll("^\\(([0-9\\.]+),([0-9\\.]+)\\)$", "$1;$2").split(";");
         return new LatLng(Double.valueOf(res[0]), Double.valueOf(res[1]));
 
     }

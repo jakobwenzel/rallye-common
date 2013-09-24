@@ -1,6 +1,7 @@
 package de.rallye.model.structures;
 
 import org.codehaus.jackson.annotate.JsonCreator;
+import org.codehaus.jackson.annotate.JsonProperty;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -19,7 +20,8 @@ public class MapConfig {
 	final public float zoomLevel;
 	final public List<LatLng> bounds;
 
-	public MapConfig(String name, LatLng location, float zoomLevel, List<LatLng> bounds) {
+	@JsonCreator
+	public MapConfig(@JsonProperty("name") String name, @JsonProperty("location") LatLng location, @JsonProperty("zoomLevel") float zoomLevel, @JsonProperty("bounds") List<LatLng> bounds) {
 		this.name = name;
 		this.location = location;
 		this.zoomLevel = zoomLevel;

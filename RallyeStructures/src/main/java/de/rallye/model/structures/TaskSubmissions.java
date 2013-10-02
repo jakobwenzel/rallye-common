@@ -5,12 +5,14 @@ import java.util.List;
 public class TaskSubmissions {
 	
 	public static final String TASK_ID = "taskID";
+	public static final String GROUP_ID = "groupID";
 	public static final String SUBMISSIONS = "submissions";
 	public static final String SCORE = "score";
 	public static final String BONUS = "bonus";
 	public static final String SCORE_OUTDATED = "scoreOutdated";
 	
 	final public int taskID;
+	final public int groupID;
 	final public List<Submission> submissions;
 	final public Integer score;
 	final public Integer bonus;
@@ -20,8 +22,9 @@ public class TaskSubmissions {
 		return score != null || bonus != null;
 	}
 
-	public TaskSubmissions(int taskID, List<Submission> submissions, Integer score, Integer bonus, boolean scoreOutdated) {
+	public TaskSubmissions(int taskID, int groupID, List<Submission> submissions, Integer score, Integer bonus, boolean scoreOutdated) {
 		this.taskID = taskID;
+		this.groupID = groupID;
 		this.submissions = submissions;
 		this.score = score;
 		this.bonus = bonus;

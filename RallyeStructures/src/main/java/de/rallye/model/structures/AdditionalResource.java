@@ -6,6 +6,11 @@ import java.util.List;
 
 public abstract class AdditionalResource implements Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -8020209285017716573L;
+
 	public static String additionalResourcesToString(List<AdditionalResource> res) {
 		StringBuilder sb = new StringBuilder();
 

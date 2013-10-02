@@ -4,6 +4,11 @@ import java.io.Serializable;
 
 public class AdditionalPicture extends AdditionalResource implements Serializable {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -2136443711937831293L;
+
 	public static final String PICTURE_ID = "pictureID";
 
 	final public int pictureID;

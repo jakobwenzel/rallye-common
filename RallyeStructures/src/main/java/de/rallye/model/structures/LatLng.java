@@ -7,6 +7,10 @@ import org.codehaus.jackson.annotate.JsonProperty;
 
 public class LatLng implements Serializable {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 5107323888940049466L;
 	public static final String LAT = "latitude";
 	public static final String LNG = "longitude";
 

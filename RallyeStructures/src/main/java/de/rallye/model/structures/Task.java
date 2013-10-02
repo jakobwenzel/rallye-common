@@ -3,10 +3,12 @@ package de.rallye.model.structures;
 import java.io.Serializable;
 import java.util.List;
 
-import org.codehaus.jackson.annotate.JsonIgnore;
-
 public class Task implements Serializable{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 6255817074458231135L;
 	public static final String TASK_ID = "taskID";
 	public static final String NAME = "name";
 	public static final String DESCRIPTION = "description";

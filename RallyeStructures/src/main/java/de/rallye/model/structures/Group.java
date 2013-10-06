@@ -2,6 +2,7 @@ package de.rallye.model.structures;
 
 import org.codehaus.jackson.annotate.JsonCreator;
 import org.codehaus.jackson.annotate.JsonProperty;
+import org.codehaus.jackson.map.annotate.JsonSerialize;
 
 public class Group {
 
@@ -12,12 +13,24 @@ public class Group {
 	public final int groupID;
 	public final String name;
 	public final String description;
+	@JsonSerialize(include= JsonSerialize.Inclusion.NON_NULL)
+	public final String password;
 
-	@JsonCreator
-	public Group(@JsonProperty("groupID") int groupID, @JsonProperty("name") String name, @JsonProperty("description") String description) {
+	//@JsonCreator
+	//public Group(@JsonProperty("groupID") int groupID, @JsonProperty("name") String name, @JsonProperty("description") String description) {
+	public Group(int groupID, String name, String description) {
 		this.groupID = groupID;
 		this.name = name;
 		this.description = description;
+		this.password = null;
+	}
+
+	@JsonCreator
+	public Group(@JsonProperty("groupID") int groupID, @JsonProperty("name") String name, @JsonProperty("description") String description, @JsonProperty("password") String password) {
+		this.groupID = groupID;
+		this.name = name;
+		this.description = description;
+		this.password = password;
 	}
 
 	@Override

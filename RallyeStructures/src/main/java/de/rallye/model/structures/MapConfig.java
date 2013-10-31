@@ -60,8 +60,6 @@ public class MapConfig {
 		if (Float.compare(that.zoomLevel, zoomLevel) != 0) return false;
 		if (!location.equals(that.location)) return false;
 		if (!name.equals(that.name)) return false;
-		if (!bounds.equals(that.bounds)) return false;
-
-		return true;
+		return bounds.equals(that.bounds);
 	}
 }

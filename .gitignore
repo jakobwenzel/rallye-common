@@ -1,10 +1,10 @@
 bin
 target
-*/build
-*/.settings
-*/.gradle
-*/target
-*/.project
-*/.classpath
+build
+.settings
+.gradle
+target
+.project
+.classpath
 *.iml
 local.properties

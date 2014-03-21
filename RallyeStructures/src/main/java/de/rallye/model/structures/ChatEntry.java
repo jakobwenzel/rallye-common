@@ -45,9 +45,7 @@ public class ChatEntry {
 		ChatEntry chatEntry = (ChatEntry) o;
 
 		if (chatID != chatEntry.chatID) return false;
-		if (timestamp != chatEntry.timestamp) return false;
-
-		return true;
+		return timestamp == chatEntry.timestamp;
 	}
 
 	@Override

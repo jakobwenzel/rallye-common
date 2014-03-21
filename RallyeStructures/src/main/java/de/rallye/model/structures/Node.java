@@ -68,8 +68,6 @@ public class Node {
 		if (getClass() != obj.getClass())
 			return false;
 		Node other = (Node) obj;
-		if (nodeID != other.nodeID)
-			return false;
-		return true;
+		return nodeID == other.nodeID;
 	}
 }

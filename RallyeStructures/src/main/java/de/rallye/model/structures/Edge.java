@@ -19,8 +19,7 @@
 
 package de.rallye.model.structures;
 
-import org.codehaus.jackson.map.annotate.JsonSerialize;
-
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import de.rallye.model.mapper.EdgeNodeSerializer;
 
 

@@ -19,10 +19,12 @@
 
 package de.rallye.model.structures;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import java.util.ArrayList;
 import java.util.List;
 
-import org.codehaus.jackson.annotate.JsonIgnore;
+
 
 /**
  * 
@@ -40,7 +42,8 @@ public class Node {
 	final public LatLng location;
 	final public String description;
 	
-	@JsonIgnore final private ArrayList<Edge> edges = new ArrayList<Edge>();
+	@JsonIgnore
+	final private ArrayList<Edge> edges = new ArrayList<Edge>();
 
 	@Deprecated
 	public Node(int ID, String name, double lat, double lon, String description) {

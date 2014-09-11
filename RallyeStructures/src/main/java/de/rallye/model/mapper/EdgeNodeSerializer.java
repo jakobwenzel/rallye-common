@@ -19,21 +19,18 @@
 
 package de.rallye.model.mapper;
 
-import org.codehaus.jackson.JsonGenerator;
-import org.codehaus.jackson.map.JsonSerializer;
-import org.codehaus.jackson.map.SerializerProvider;
-
-import java.io.IOException;
-
+import com.fasterxml.jackson.core.JsonGenerator;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.JsonSerializer;
+import com.fasterxml.jackson.databind.SerializerProvider;
 import de.rallye.model.structures.Node;
 
+import java.io.IOException;
 
 public class EdgeNodeSerializer extends JsonSerializer<Node> {
 
 	@Override
-	public void serialize(Node value, JsonGenerator jsonGenerator, SerializerProvider arg2)
-			throws IOException {
+	public void serialize(Node value, JsonGenerator jsonGenerator, SerializerProvider provider)	throws IOException, JsonProcessingException {
 		jsonGenerator.writeNumber(value.nodeID);
 	}
-
 }

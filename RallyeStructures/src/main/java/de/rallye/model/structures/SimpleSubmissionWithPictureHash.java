@@ -19,7 +19,7 @@
 
 package de.rallye.model.structures;
 
-import org.codehaus.jackson.annotate.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
  * Created by Ramon on 08.10.13

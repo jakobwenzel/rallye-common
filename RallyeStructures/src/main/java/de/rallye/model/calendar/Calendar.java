@@ -22,23 +22,22 @@ package de.rallye.model.calendar;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import de.rallye.model.structures.Location;
 
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
-
-import de.rallye.model.structures.Location;
 
 /**
  * Created by Ramon on 17.09.2014.
  */
 public class Calendar implements ICalendar {
 
-	private final List<Day> days;
+	@JsonProperty private final List<? extends IDay> days;
 	private final Long startDay;
 
 	@JsonCreator
-	public Calendar(@JsonProperty("days") List<Day> days, Long startDay) {
+	public Calendar(@JsonProperty("days") List<? extends IDay> days, Long startDay) {
 		this.days = days;
 		this.startDay = startDay;
 	}
@@ -125,7 +124,7 @@ public class Calendar implements ICalendar {
 
 	public static class Event extends AbstractEvent {
 
-		private final Location location;
+		@JsonProperty private final Location location;
 
 		@JsonCreator
 		public Event(int startTime, int endTime, String name, String description, int color, Location location) {
@@ -152,7 +151,7 @@ public class Calendar implements ICalendar {
 
 	public static class GroupSpecificEvent extends AbstractEvent {
 
-		private final Map<Integer, Location> locations;
+		@JsonProperty private final Map<Integer, Location> locations;
 
 		@JsonCreator
 		public GroupSpecificEvent(int startTime, int endTime, String name, String description, int color, Map<Integer, Location> locations) {
@@ -175,5 +174,20 @@ public class Calendar implements ICalendar {
 		public boolean isGroupSpecific() {
 			return true;
 		}
+	}
+
+	/**
+	 * Helper for more visual creation / debugging of Calendar
+	 *
+	 * @param hoursMinutes an int containing a time like '0950' which reallye means 09:50
+	 * @return seconds since start of the day
+	 */
+	public static int getTime(int hoursMinutes) {
+		int minutes = hoursMinutes%100;
+		int hours = hoursMinutes/100;
+		if (minutes > 60 || hours > 24 || hoursMinutes < 0)
+			throw new UnsupportedOperationException("That is not a valid time you idiot");
+
+		return (hours * 60 + minutes) * 60;
 	}
 }

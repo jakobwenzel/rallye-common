@@ -13,6 +13,10 @@ dependencies {
 	compile 'com.fasterxml.jackson.core:jackson-databind:2.4.+'
 }
 
+jar {
+	archiveName 'rallye-structures.jar'
+}
+
 task copyLicense(type: Copy) {
      from 'COPYING'
      into "$buildDir/resources/main/META-INF"

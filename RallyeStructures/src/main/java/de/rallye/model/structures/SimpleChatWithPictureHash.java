@@ -34,4 +34,8 @@ public class SimpleChatWithPictureHash extends SimpleChatEntry {
 		super(message, pictureID);
 		this.pictureHash = pictureHash;
 	}
+
+	public SimpleChatWithPictureHash(String message, String pictureHash) {
+		this(message, null, pictureHash);
+	}
 }

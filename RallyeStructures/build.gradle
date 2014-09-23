@@ -24,10 +24,23 @@ repositories {
 apply plugin: 'java'
 apply plugin: 'eclipse'
 
-sourceCompatibility = 1.6
-targetCompatibility = 1.6
+sourceCompatibility = 1.7
+targetCompatibility = 1.7
 
 dependencies {
 	compile 'com.fasterxml.jackson.core:jackson-annotations:2.4.+'
 	compile 'com.fasterxml.jackson.core:jackson-databind:2.4.+'
+}
+
+jar {
+	archiveName 'rallye-structures.jar'
+}
+
+task copyLicense(type: Copy) {
+     from 'COPYING'
+     into "$buildDir/resources/main/META-INF"
+ }
+
+processResources {
+	it.dependsOn copyLicense
 }

@@ -32,7 +32,7 @@ public class ServerInfo {
 	final public String name;
 	final public String description;
 	final public Api[] api;
-	final public String build;
+	final public Object build;
 
 	public static class Api {
 		public static final String NAME = "name";
@@ -57,7 +57,7 @@ public class ServerInfo {
 		return "name: "+ name +"\n"+ "description: "+ description +"\n"+ getApiAsString() +"\n"+ "Build: "+ build;
 	}
 	
-	public ServerInfo(String name, String description, Api[] api, String build) {
+	public ServerInfo(String name, String description, Api[] api, Object build) {
 		this.name = name;
 		this.description = description;
 		this.api = api;

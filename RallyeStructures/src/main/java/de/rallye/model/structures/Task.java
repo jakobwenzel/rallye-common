@@ -28,19 +28,6 @@ public class Task implements Serializable{
 	 * 
 	 */
 	private static final long serialVersionUID = 6255817074458231135L;
-	public static final String TASK_ID = "taskID";
-	public static final String NAME = "name";
-	public static final String DESCRIPTION = "description";
-	public static final String LOCATION = "location";
-	public static final String RADIUS = "radius";
-	public static final String MULTIPLE_SUBMITS = "multipleSubmits";
-	public static final String SUBMIT_TYPE = "submitType";
-	public static final String LOCATION_SPECIFIC = "locationSpecific";
-	public static final String POINTS = "maxPoints";
-	public static final String SCORE = "score";
-	public static final String BONUS = "bonus";
-//	public static final String PICTURE_ID = Picture.PICTURE_ID;
-	public static final String ADDITIONAL_RESOURCES = "additionalResources";
 	
 	public static final int TYPE_LOCATION = 1;
 	public static final int TYPE_PICTURE = 2;

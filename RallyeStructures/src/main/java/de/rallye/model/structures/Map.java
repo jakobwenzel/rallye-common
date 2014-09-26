@@ -17,32 +17,24 @@
  * along with RallyeSoft. If not, see <http://www.gnu.org/licenses/>.
  */
 
+package de.rallye.model.structures;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
-repositories {
-	mavenCentral()
-}
+import java.util.List;
 
-apply plugin: 'java'
-apply plugin: 'eclipse'
+/**
+ * Created by Ramon on 24.09.2014.
+ */
+public class Map {
 
-sourceCompatibility = 1.7
-targetCompatibility = 1.7
+	public final List<Node> nodes;
+	public final List<Edge> edges;
 
-dependencies {
-	compile 'com.fasterxml.jackson.core:jackson-annotations:2.4.+'
-	compile 'com.fasterxml.jackson.core:jackson-databind:2.4.+'
-}
-
-jar {
-	archiveName 'rallye-structures.jar'
-}
-
-task copyLicense(type: Copy) {
-     from 'COPYING'
-     into "$buildDir/resources/main/META-INF"
- }
-
-processResources {
-	it.dependsOn copyLicense
+	@JsonCreator
+	public Map(@JsonProperty("nodes") List<Node> nodes, @JsonProperty("edges") List<Edge> edges) {
+		this.nodes = nodes;
+		this.edges = edges;
+	}
 }

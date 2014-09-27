@@ -24,12 +24,12 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 /**
  * Created by Ramon on 23.09.2014.
  */
-public class PushChatEntry {
+public class PushChatEntry<EntryType extends ChatEntry> {
 
 	public final int roomID;
-	public final ChatEntry entry;
+	public final EntryType entry;
 
-	public PushChatEntry(@JsonProperty("entry") ChatEntry entry, @JsonProperty("roomID") int roomID) {
+	public PushChatEntry(@JsonProperty("entry") EntryType entry, @JsonProperty("roomID") int roomID) {
 		this.entry = entry;
 		this.roomID = roomID;
 	}

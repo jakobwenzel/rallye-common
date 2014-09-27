@@ -19,23 +19,34 @@
 
 package de.rallye.model.structures;
 
-
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public class PushConfig {
+/**
+ * Created by Ramon on 27.09.2014.
+ */
+public class ServerLogin {
 
-	public static final String MODE_GCM = "gcm";
-	
-	public static final String PUSH_ID = "pushID";
-	public static final String PUSH_MODE = "pushMode";
-	
-	final public String pushID;
-	final public String pushMode;
+	private String address;
+	private int groupID;
+	private String groupPassword;
 
 	@JsonCreator
-	public PushConfig(@JsonProperty("pushID") String pushID, @JsonProperty("pushMode") String pushMode) {
-		this.pushID = pushID;
-		this.pushMode = pushMode;
+	public ServerLogin(@JsonProperty("address") String address, @JsonProperty("groupID") int groupID, @JsonProperty("groupPassword") String groupPassword) {
+		this.address = address;
+		this.groupID = groupID;
+		this.groupPassword = groupPassword;
+	}
+
+	public String getAddress() {
+		return address;
+	}
+
+	public int getGroupID() {
+		return groupID;
+	}
+
+	public String getGroupPassword() {
+		return groupPassword;
 	}
 }

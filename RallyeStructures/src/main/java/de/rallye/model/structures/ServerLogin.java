@@ -27,9 +27,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  */
 public class ServerLogin {
 
-	private String address;
-	private int groupID;
-	private String groupPassword;
+	private final String address;
+	private final int groupID;
+	private final String groupPassword;
 
 	@JsonCreator
 	public ServerLogin(@JsonProperty("address") String address, @JsonProperty("groupID") int groupID, @JsonProperty("groupPassword") String groupPassword) {

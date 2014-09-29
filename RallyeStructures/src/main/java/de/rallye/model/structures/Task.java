@@ -19,14 +19,15 @@
 
 package de.rallye.model.structures;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.io.Serializable;
 import java.util.List;
 
 public class Task implements Serializable{
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 6255817074458231135L;
 	
 	public static final int TYPE_LOCATION = 1;
@@ -49,8 +50,8 @@ public class Task implements Serializable{
 	public final Integer bonus; //Null if not yet rated
 	public final List<AdditionalResource> additionalResources;
 	
-	
-	public Task(int taskID, boolean locationSpecific, LatLng location, double radius, String name, String description, boolean multipleSubmits, int submitType, String maxPoints, List<AdditionalResource> additionalResources, Integer score, Integer bonus) {
+	@JsonCreator
+	public Task(@JsonProperty("taskID") int taskID, @JsonProperty("locationSpecific") boolean locationSpecific, @JsonProperty("location") LatLng location, @JsonProperty("radius") double radius, @JsonProperty("name") String name, @JsonProperty("description") String description, @JsonProperty("multipleSubmits") boolean multipleSubmits, @JsonProperty("submitType") int submitType, @JsonProperty("maxPoints") String maxPoints, @JsonProperty("additionalResources") List<AdditionalResource> additionalResources, @JsonProperty("score") Integer score, @JsonProperty("bonus") Integer bonus) {
 		this.taskID = taskID;
 		this.locationSpecific = locationSpecific;
 		this.location = location;
@@ -81,7 +82,8 @@ public class Task implements Serializable{
 	public String toString() {
 		return taskID +":"+ name +" "+ location +"";
 	}
-	
+
+	@JsonIgnore
 	public boolean isRated() {
 		return (score!=null) || (bonus!=null);
 	}

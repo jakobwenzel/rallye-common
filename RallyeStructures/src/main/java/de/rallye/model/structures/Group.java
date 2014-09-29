@@ -22,28 +22,12 @@ package de.rallye.model.structures;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
 public class Group {
-
-	public static final String GROUP_ID = "groupID";
-	public static final String NAME = "name";
-	public static final String DESCRIPTION = "description";
-
 	public final int groupID;
 	public final String name;
 	public final String description;
-	@JsonSerialize(include= JsonSerialize.Inclusion.NON_NULL)
 	public final String password;
-
-	//@JsonCreator
-	//public Group(@JsonProperty("groupID") int groupID, @JsonProperty("name") String name, @JsonProperty("description") String description) {
-	public Group(int groupID, String name, String description) {
-		this.groupID = groupID;
-		this.name = name;
-		this.description = description;
-		this.password = null;
-	}
 
 	@JsonCreator
 	public Group(@JsonProperty("groupID") int groupID, @JsonProperty("name") String name, @JsonProperty("description") String description, @JsonProperty("password") String password) {

@@ -29,12 +29,6 @@ import java.util.List;
 import java.util.Set;
 
 public class MapConfig {
-
-	public static final String NAME = "name";
-	public static final String LOCATION = "location";
-	public static final String ZOOM_LEVEL = "zoomLevel";
-	public static final String BOUNDS = "bounds";
-
 	final public String name;
 	final public LatLng location;
 	final public float zoomLevel;

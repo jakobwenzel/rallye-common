@@ -20,28 +20,36 @@
 package de.rallye.model.structures;
 
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class ServerInfo {
-
-	public static final String NAME = "name";
-	public static final String DESCRIPTION = "description";
-	public static final String API = "api";
-	public static final String BUILD = "build";
 	
 	final public String name;
 	final public String description;
 	final public Api[] api;
 	final public Object build;
 
+	@Override
+	public String toString() {
+		return "name: "+ name +"\n"+ "description: "+ description +"\n"+ Api.getApisAsString(api) +"\n"+ "Build: "+ build;
+	}
+
+	@JsonCreator
+	public ServerInfo(@JsonProperty("name") String name, @JsonProperty("description") String description, @JsonProperty("api") Api[] api, @JsonProperty("build") Object build) {
+		this.name = name;
+		this.description = description;
+		this.api = api;
+		this.build = build;
+	}
+
 	public static class Api {
-		public static final String NAME = "name";
-		public static final String VERSION = "version";
-		
+
 		final public String name;
 		final public int version;
-		
-		public Api(String name, int version) {
+
+		@JsonCreator
+		public Api(@JsonProperty("name") String name, @JsonProperty("version") int version) {
 			this.name = name;
 			this.version = version;
 		}
@@ -50,38 +58,14 @@ public class ServerInfo {
 		public String toString() {
 			return name +":"+ version;
 		}
-	}
 
-	@Override
-	public String toString() {
-		return "name: "+ name +"\n"+ "description: "+ description +"\n"+ getApiAsString() +"\n"+ "Build: "+ build;
-	}
-	
-	public ServerInfo(String name, String description, Api[] api, Object build) {
-		this.name = name;
-		this.description = description;
-		this.api = api;
-		this.build = build;
-	}
-
-	@JsonIgnore
-	public String getApiAsString() {
-		StringBuilder sb = new StringBuilder();
-		for (Api a: api) {
-			sb.append(a.toString()).append(':');
+		public static String getApisAsString(Api[] apis) {
+			StringBuilder sb = new StringBuilder();
+			for (Api a: apis) {
+				sb.append(a.toString()).append(':');
+			}
+			sb.deleteCharAt(sb.length()-1);
+			return sb.toString();
 		}
-		sb.deleteCharAt(sb.length()-1);
-		return sb.toString();
 	}
-
-    public static ServerInfo fromSet(String name, String description, String apiString, String build) {
-        String[] strArr = apiString.split(":");
-        Api[] api = new Api[strArr.length/2];
-
-        for (int i=0; i<strArr.length; i++) {
-            api[i/2] = new Api(strArr[i], Integer.parseInt(strArr[++i]));
-        }
-
-        return new ServerInfo(name, description, api, build);
-    }
 }

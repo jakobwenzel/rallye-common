@@ -24,6 +24,8 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class Group {
+	public static final String GROUP_ID = "groupID";
+
 	public final int groupID;
 	public final String name;
 	public final String description;

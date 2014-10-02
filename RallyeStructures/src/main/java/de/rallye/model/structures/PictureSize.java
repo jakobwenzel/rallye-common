@@ -20,14 +20,15 @@
 package de.rallye.model.structures;
 
 public enum PictureSize {
-	Thumbnail, Mini, Standard, Original;
+	Thumbnail, Mini, Standard, Original, Preview;
 	
 	private static final int THUMB_SIZE = 96;
 	private static final int MINI_SIZE = 480;
+	private static final int PREVIEW_SIZE = 800;
 	private static final int STD_SIZE = 1280;
 	
-	private static final String[] abr =  new String[]{ "thumb", "mini", "std", "org" };
-	private static final Dimension[] dims = new Dimension[]{ new Dimension(THUMB_SIZE, THUMB_SIZE), new Dimension(MINI_SIZE, MINI_SIZE), new Dimension(STD_SIZE, STD_SIZE), null };
+	private static final String[] abr =  new String[]{ "thumb", "mini", "std", "org", "preview" };
+	private static final Dimension[] dims = new Dimension[]{ new Dimension(THUMB_SIZE, THUMB_SIZE), new Dimension(MINI_SIZE, MINI_SIZE), new Dimension(STD_SIZE, STD_SIZE), null, new Dimension(PREVIEW_SIZE, PREVIEW_SIZE) };
 	
 	public static PictureSize fromString(String s) {
 		for(int i=0; i<abr.length; i++) {

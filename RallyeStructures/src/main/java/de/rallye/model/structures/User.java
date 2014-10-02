@@ -19,15 +19,15 @@
 
 package de.rallye.model.structures;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class User {
-	
-	public static final String USER_ID = "userID";
-	public static final String NAME = "name";
-	
 	final public int userID;
 	final public String name;
-	
-	public User(int userID, String name) {
+
+	@JsonCreator
+	public User(@JsonProperty("userID") int userID, @JsonProperty("name") String name) {
 		this.userID = userID;
 		this.name = name;
 	}

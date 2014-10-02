@@ -19,14 +19,14 @@
 
 package de.rallye.model.structures;
 
-public class Submission extends SimpleSubmission {
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
-	public static final String SUBMISSION_ID = "submissionID";
-	public static final String SCORE = "score";
-	
+public class Submission extends SimpleSubmission {
 	final public int submissionID;
-	
-	public Submission(int submissionID, int submitType, Integer intSubmission, String textSubmission) {
+
+	@JsonCreator
+	public Submission(@JsonProperty("submissionID") int submissionID, @JsonProperty("submitType") int submitType, @JsonProperty("intSubmission") Integer intSubmission, @JsonProperty("textSubmission") String textSubmission) {
 		super(submitType, intSubmission, textSubmission);
 		
 		this.submissionID = submissionID;

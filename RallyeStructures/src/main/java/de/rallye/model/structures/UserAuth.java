@@ -19,19 +19,21 @@
 
 package de.rallye.model.structures;
 
-public class UserAuth {
-	
-	public static final String USER_ID = "userID";
-	public static final String PASSWORD = "password";
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
+public class UserAuth {
 	final public int userID;
 	final public String password;
-	
-	public UserAuth(int userID, String password) {
+
+	@JsonCreator
+	public UserAuth(@JsonProperty("userID") int userID, @JsonProperty("password") String password) {
 		this.userID = userID;
 		this.password = password;
 	}
-	
+
+	@JsonIgnore
 	public String getHttpUser(int groupID) {
 		return userID+"@"+groupID;
 	}

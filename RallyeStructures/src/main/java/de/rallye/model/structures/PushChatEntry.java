@@ -23,6 +23,10 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
  * Created by Ramon on 23.09.2014.
+ *
+ * Wrapper for ChatEntry that names the room it stems from
+ *
+ * Generic to allow the client to directly deserialize to a sub-class
  */
 public class PushChatEntry<EntryType extends ChatEntry> {
 

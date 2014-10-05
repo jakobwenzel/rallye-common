@@ -23,19 +23,23 @@ package de.rallye.model.structures;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public class SimpleChatWithPictureHash extends SimpleChatEntry {
+/**
+ * Basic Chat, only containing message and optionally a picture reference (any String/hash)
+ */
+public class PostChat {
 	
-	public static final String PICTURE_HASH = "pictureHash";
-
+	public final String message;
 	public final String pictureHash;
 
 	@JsonCreator
-	public SimpleChatWithPictureHash(@JsonProperty("message") String message, @JsonProperty("pictureID") Integer pictureID, @JsonProperty("pictureHash") String pictureHash) {
-		super(message, pictureID);
+	public PostChat(@JsonProperty("message") String message, @JsonProperty("pictureHash") String pictureHash) {
+		this.message = message;
 		this.pictureHash = pictureHash;
 	}
 
-	public SimpleChatWithPictureHash(String message, String pictureHash) {
-		this(message, null, pictureHash);
+	public boolean hasPicture() {
+		return pictureHash != null;
 	}
+	
+	
 }

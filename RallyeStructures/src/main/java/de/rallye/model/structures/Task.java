@@ -45,7 +45,7 @@ public class Task implements Serializable{
 	public final boolean multipleSubmits;
 	public final int submitType;
 	public final String maxPoints;
-//	public final Integer pictureID;
+//	public final Integer pictureHash;
 	public final Integer score; //Null if not yet rated
 	public final Integer bonus; //Null if not yet rated
 	public final List<AdditionalResource> additionalResources;

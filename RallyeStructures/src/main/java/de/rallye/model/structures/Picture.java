@@ -19,13 +19,14 @@
 
 package de.rallye.model.structures;
 
+/**
+ * Reference to a picture
+ */
 public class Picture {
 	
-	public static final String PICTURE_ID = "pictureID";
+	final public String pictureHash;
 	
-	final public int pictureID;
-	
-	public Picture(int pictureID) {
-		this.pictureID = pictureID;
+	public Picture(String pictureHash) {
+		this.pictureHash = pictureHash;
 	}
 }

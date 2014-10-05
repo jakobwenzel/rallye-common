@@ -28,7 +28,7 @@ public class AdditionalPicture extends AdditionalResource implements Serializabl
 	 */
 	private static final long serialVersionUID = -2136443711937831293L;
 
-	public static final String PICTURE_ID = "pictureID";
+	public static final String PICTURE_ID = "pictureHash";
 
 	final public int pictureID;
 	

@@ -22,18 +22,18 @@ package de.rallye.model.structures;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public class Submission extends SimpleSubmission {
+public class Submission extends PostSubmission {
 	final public int submissionID;
 
 	@JsonCreator
-	public Submission(@JsonProperty("submissionID") int submissionID, @JsonProperty("submitType") int submitType, @JsonProperty("intSubmission") Integer intSubmission, @JsonProperty("textSubmission") String textSubmission) {
-		super(submitType, intSubmission, textSubmission);
+	public Submission(@JsonProperty("submissionID") int submissionID, @JsonProperty("submitType") int submitType, @JsonProperty("picSubmission") String picSubmission, @JsonProperty("intSubmission") Integer intSubmission, @JsonProperty("textSubmission") String textSubmission) {
+		super(submitType, picSubmission, intSubmission, textSubmission);
 		
 		this.submissionID = submissionID;
 	}
 	
-	public Submission(int submissionID, SimpleSubmission parent) {
-		this(submissionID, parent.submitType, parent.intSubmission, parent.textSubmission);
+	public Submission(int submissionID, PostSubmission parent) {
+		this(submissionID, parent.submitType, parent.picSubmission, parent.intSubmission, parent.textSubmission);
 	}
 
 	@Override

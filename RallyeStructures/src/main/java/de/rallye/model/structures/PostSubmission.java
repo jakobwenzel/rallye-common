@@ -22,20 +22,18 @@ package de.rallye.model.structures;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public class SimpleSubmission {
-	
-	public static final String SUBMIT_TYPE = "submitType";
-	public static final String INT_SUBMISSION = "intSubmission";
-	public static final String TEXT_SUBMISSION = "textSubmission";
+public class PostSubmission {
 	
 	final public int submitType;
+	final public String picSubmission;
 	final public Integer intSubmission;
 	final public String textSubmission;
 	
 	@JsonCreator
-	public SimpleSubmission(@JsonProperty("submitType")int submitType, @JsonProperty("intSubmission")Integer intSubmission, @JsonProperty("textSubmission")String textSubmission) {
+	public PostSubmission(@JsonProperty("submitType") int submitType, @JsonProperty("picSubmission") String picSubmission, @JsonProperty("intSubmission") Integer intSubmission, @JsonProperty("textSubmission") String textSubmission) {
 		this.submitType = submitType;
 		this.intSubmission = intSubmission;
 		this.textSubmission = textSubmission;
+		this.picSubmission = picSubmission;
 	}
 }

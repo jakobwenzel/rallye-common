@@ -36,8 +36,8 @@ public class AdditionalPicture extends AdditionalResource {
 		return "picHash:"+ pictureHash;
 	}
 	
-//	public static AdditionalPicture fromString(String s) {
-//		String pic = s.replaceAll("^picHash:(\\d+)$", "$1");
-//		return new AdditionalPicture(pic);
-//	}
+	public static AdditionalPicture fromString(String s) {
+		String pic = s.replaceAll("^picHash:(\\d+)$", "$1");
+		return new AdditionalPicture(pic);
+	}
 }

@@ -19,30 +19,25 @@
 
 package de.rallye.model.structures;
 
-import java.io.Serializable;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
-public class AdditionalPicture extends AdditionalResource implements Serializable {
-	
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = -2136443711937831293L;
+public class AdditionalPicture extends AdditionalResource {
 
-	public static final String PICTURE_ID = "pictureHash";
+	final public String pictureHash;
 
-	final public int pictureID;
-	
-	public AdditionalPicture(int pictureID) {
-		this.pictureID = pictureID;
+	@JsonCreator
+	public AdditionalPicture(@JsonProperty("pictureHash") String pictureHash) {
+		this.pictureHash = pictureHash;
 	}
 	
 	@Override
 	public String toString() {
-		return "picID:"+ pictureID;
+		return "picHash:"+ pictureHash;
 	}
 	
-	public static AdditionalPicture fromString(String s) {
-		String pic = s.replaceAll("^picID:(\\d+)$", "$1");
-		return new AdditionalPicture(Integer.parseInt(pic));
-	}
+//	public static AdditionalPicture fromString(String s) {
+//		String pic = s.replaceAll("^picHash:(\\d+)$", "$1");
+//		return new AdditionalPicture(pic);
+//	}
 }

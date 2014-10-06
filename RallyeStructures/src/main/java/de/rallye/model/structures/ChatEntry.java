@@ -39,8 +39,8 @@ public class ChatEntry extends PostChat {
 	 * @param groupID
 	 * @param userID
 	 */
-	public ChatEntry(int chatID, String message, long timestamp, int groupID, int userID, String pictureID) {
-		super(message, pictureID);
+	public ChatEntry(int chatID, String message, long timestamp, int groupID, int userID, String pictureHash) {
+		super(message, pictureHash);
 
 		this.timestamp = timestamp;
 		this.groupID = groupID;

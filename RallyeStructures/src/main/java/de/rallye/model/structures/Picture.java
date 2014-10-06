@@ -19,14 +19,23 @@
 
 package de.rallye.model.structures;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 /**
  * Reference to a picture
  */
 public class Picture {
 	
 	final public String pictureHash;
-	
-	public Picture(String pictureHash) {
+
+	@JsonCreator
+	public Picture(@JsonProperty("pictureHash") String pictureHash) {
 		this.pictureHash = pictureHash;
+	}
+
+	@Override
+	public String toString() {
+		return "Picture: "+ pictureHash;
 	}
 }

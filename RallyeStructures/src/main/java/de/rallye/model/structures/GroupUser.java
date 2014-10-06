@@ -19,13 +19,15 @@
 
 package de.rallye.model.structures;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class GroupUser extends User {
-	
-	public static final String GROUP_ID = "groupID";
 	
 	public final int groupID;
 
-	public GroupUser(int userID, int groupID, String name) {
+	@JsonCreator
+	public GroupUser(@JsonProperty("userID") int userID, @JsonProperty("groupID") int groupID, @JsonProperty("name") String name) {
 		super(userID, name);
 
 		this.groupID = groupID;

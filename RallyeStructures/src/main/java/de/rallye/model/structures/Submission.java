@@ -24,16 +24,18 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class Submission extends PostSubmission {
 	final public int submissionID;
+	final public long timestamp;
 
 	@JsonCreator
-	public Submission(@JsonProperty("submissionID") int submissionID, @JsonProperty("submitType") int submitType, @JsonProperty("picSubmission") String picSubmission, @JsonProperty("intSubmission") Integer intSubmission, @JsonProperty("textSubmission") String textSubmission) {
+	public Submission(@JsonProperty("submissionID") int submissionID, @JsonProperty("submitType") int submitType, @JsonProperty("picSubmission") String picSubmission, @JsonProperty("intSubmission") Integer intSubmission, @JsonProperty("textSubmission") String textSubmission, @JsonProperty("timestamp") long timestamp) {
 		super(submitType, picSubmission, intSubmission, textSubmission);
-		
+
+		this.timestamp = timestamp;
 		this.submissionID = submissionID;
 	}
 	
-	public Submission(int submissionID, PostSubmission parent) {
-		this(submissionID, parent.submitType, parent.picSubmission, parent.intSubmission, parent.textSubmission);
+	public Submission(int submissionID, long timestamp, PostSubmission parent) {
+		this(submissionID, parent.submitType, parent.picSubmission, parent.intSubmission, parent.textSubmission, timestamp);
 	}
 
 	@Override

@@ -32,4 +32,9 @@ public class PrimarySubmissionConfig {
 	public PrimarySubmissionConfig(@JsonProperty("primarySubmissionID") int primarySubmissionID) {
 		this.primarySubmissionID = primarySubmissionID;
 	}
+
+	@Override
+	public String toString() {
+		return Integer.toString(primarySubmissionID);
+	}
 }

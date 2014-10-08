@@ -19,32 +19,28 @@
 
 package de.rallye.model.structures;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.util.List;
 
-public class TaskSubmissions {
-	
-	public static final String TASK_ID = "taskID";
-	public static final String GROUP_ID = "groupID";
-	public static final String SUBMISSIONS = "submissions";
-	public static final String SCORE = "score";
-	public static final String BONUS = "bonus";
-	public static final String SCORE_OUTDATED = "scoreOutdated";
+public class TaskSubmissions extends SelectableSubmissions {
 	
 	final public int taskID;
 	final public int groupID;
-	final public List<Submission> submissions;
 	final public Integer score;
 	final public Integer bonus;
 	final public boolean scoreOutdated;
-	
+
 	public boolean isRated() {
 		return score != null || bonus != null;
 	}
 
-	public TaskSubmissions(int taskID, int groupID, List<Submission> submissions, Integer score, Integer bonus, boolean scoreOutdated) {
+	@JsonCreator
+	public TaskSubmissions(@JsonProperty("taskID") int taskID, @JsonProperty("groupID") int groupID, @JsonProperty("submissions") List<Submission> submissions, @JsonProperty("score") Integer score, @JsonProperty("bonus") Integer bonus, @JsonProperty("scoreOutdated") boolean scoreOutdated, @JsonProperty("primarySubmission") Integer primarySubmission) {
+		super(primarySubmission, submissions);
 		this.taskID = taskID;
 		this.groupID = groupID;
-		this.submissions = submissions;
 		this.score = score;
 		this.bonus = bonus;
 		this.scoreOutdated = scoreOutdated;

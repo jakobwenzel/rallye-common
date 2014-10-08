@@ -19,10 +19,17 @@
 
 package de.rallye.model.structures;
 
-public class PushEntity {
-	
-	public static final String PAYLOAD = "payload";
-	public static final String TYPE = "type";
-	
-	public enum Type { newMessage, newSubmission, refreshTasks, refreshChatrooms, pingLocation, setPrimarySubmission, messageChanged }
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+/**
+ * Created by Ramon on 08.10.2014.
+ */
+public class PrimarySubmissionConfig {
+	public final int primarySubmissionID;
+
+	@JsonCreator
+	public PrimarySubmissionConfig(@JsonProperty("primarySubmissionID") int primarySubmissionID) {
+		this.primarySubmissionID = primarySubmissionID;
+	}
 }

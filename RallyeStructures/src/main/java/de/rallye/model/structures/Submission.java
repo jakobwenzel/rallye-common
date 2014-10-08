@@ -42,4 +42,21 @@ public class Submission extends PostSubmission {
 	public String toString() {
 		return submissionID +": ("+ intSubmission +"|"+ textSubmission +")";
 	}
+
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (o == null || getClass() != o.getClass()) return false;
+
+		Submission that = (Submission) o;
+
+		if (submissionID != that.submissionID) return false;
+
+		return true;
+	}
+
+	@Override
+	public int hashCode() {
+		return submissionID;
+	}
 }

@@ -17,14 +17,14 @@
  * along with RallyeSoft. If not, see <http://www.gnu.org/licenses/>.
  */
 
-
+plugins {
+	id 'java'
+	id 'eclipse'
+}
 
 repositories {
 	mavenCentral()
 }
-
-apply plugin: 'java'
-apply plugin: 'eclipse'
 
 sourceCompatibility = 1.7
 targetCompatibility = 1.7

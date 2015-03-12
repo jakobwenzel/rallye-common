@@ -18,13 +18,6 @@
  */
 
 
-
-
-
-
-
-
-
 plugins {
 	id 'java'
 }
@@ -46,9 +39,9 @@ jar {
 }
 
 task copyLicense(type: Copy) {
-     from 'COPYING'
-     into "$buildDir/resources/main/META-INF"
- }
+	from 'COPYING'
+	into "$buildDir/resources/main/META-INF"
+}
 
 processResources {
 	it.dependsOn copyLicense

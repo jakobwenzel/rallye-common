@@ -30,7 +30,7 @@ sourceCompatibility = 1.7
 targetCompatibility = 1.7
 
 ext {
-	jacksonVersion = '2.6.+'
+	jacksonVersion = '2.6.1'
 }
 
 dependencies {
